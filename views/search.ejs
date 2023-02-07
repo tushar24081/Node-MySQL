@@ -42,28 +42,11 @@
             color: #fff;
             padding: 3px;
         }
-        input[type=text]{
-            border: none;
-            padding: 10px;
-            box-shadow: 1px 2px 3px;
-        }
-        input[type=submit]{
-            border: none;
-            padding: 10px;
-            background-color: black;
-            color: #fff
-        }
     </style>
 </head>
 
 <body>
-    <center>
-    <form action="/search" method="post">
-        <input type="text" name="query" placeholder="Enter Name of Student ">
-        <input type="submit" value="Search">
-    </form>
-</center>
-    <br>
+
     <div class="flex">
         <% for(var i=0; i < data.length; i++) { %>
 

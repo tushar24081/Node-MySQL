@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 import dotenv from "dotenv";
 import multer from "multer";
 import mysql2 from "mysql2"
@@ -57,7 +57,7 @@ app.post("/insert-data", upload.single("file"), (req, res) => {
 })
 
 app.get("/get-data", (req, res) => {
-    var query = "SELECT * FROM Student.Student_Mst order by rand() LIMIT 100 ";
+    var query = "SELECT * FROM Student.Student_Mst LIMIT 100 ";
     connection.query(query, (err, ans) => {
         if(err) return console.log("None");
         console.log("came here");
@@ -109,7 +109,20 @@ app.post("/update-data/:id", upload.single("file"), (req, res) => {
 
 
 
-app.delete("/delete-data/:id", (req, res) => {
+app.get("/delete-data/:id", (req, res) => {
+    var query = `DELETE FROM Student.Student_Mst where id = ${req.params.id}`;
+    connection.query(query, (err, ans) => {
+        if(err) return res.send(err.message);
+        return res.send("Data has been Deleted")
+    })
+    
+})
 
+app.post("/search", (req, res) => {
+    var query = `SELECT * FROM Student.Student_Mst where First_Name LIKE '${req.body.query}%'`;
+    connection.query(query, (err, ans) => {
+        if(err) return res.send(err.message);
+        res.render("search", {data: ans})
+    })
 })
 app.listen(process.env.PORT)
