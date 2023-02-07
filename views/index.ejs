@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EJS</title>
+    <title>Submission Form</title>
 </head>
 
 <body>
@@ -20,9 +20,6 @@
         Contact Number: <input type="text" name="cno" id="cno"><br><br>
         City: <input type="text" name="city" id="city"><br><br>
         Email: <input type="text" name="email" id="email"><br><br>
-        <!-- Univeristy:<input type="text" name="university" id="university"><br><br>
-        -->
-
         <select name="college" id="college">
             <% for(var i=0; i < name.length; i++) { %>
                 <option value="<%= name[i].id %>">
