@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS</title>
+</head>
+
+<body>
+    File has been configured using EJS. <br>
+
+    <br><br>
+
+    <form action="/insert-data" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="POST">
+        First Name: <input type="text" name="fname" id="fname"><br><br>
+        Last Name: <input type="text" name="lname" id="lname"><br><br>
+        Contact Number: <input type="text" name="cno" id="cno"><br><br>
+        City: <input type="text" name="city" id="city"><br><br>
+        Email: <input type="text" name="email" id="email"><br><br>
+        <!-- Univeristy:<input type="text" name="university" id="university"><br><br>
+        -->
+
+        <select name="college" id="college">
+            <% for(var i=0; i < name.length; i++) { %>
+                <option value="<%= name[i].id %>">
+                    <%= name[i].name %>
+                </option>
+                <% } %>
+        </select>
+        <input type="file" name="file" id="">
+        <input type="submit" value="Submit Data">
+    </form>
+
+</body>
+
+</html>
