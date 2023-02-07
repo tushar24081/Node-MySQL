@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Data</title>
+    <style>
+        .card {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            border: 1px red solid;
+        }
+
+        .header {
+            height: 30%;
+            background: red;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        .flex{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        a{
+            text-decoration: none;
+            background-color: black;
+            color: #fff;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <% for(var i=0; i < data.length; i++) { %>
+
+            <div class="card">
+                <div class="header">
+                    <p>
+                        <%= data[i].First_Name %>
+                            <%= data[i].Last_Name %>
+                    </p>
+                </div>
+                <div class="container">
+                     <p> City: <%= data[i].City %></p>
+                   <p> Contact No: <%= data[i].Contact_No %></p>
+                    <p>Email: <%= data[i].Email %></p>
+                    <p>Create At:<%= data[i].createdAt %></p>
+                    <a href="/update-form/<%= data[i].id %>">Edit Data</a>
+                    <button>Delete Data</button>
+                </div>
+            </div>
+
+            <% } %>
+    </div>
+</body>
+
+</html>

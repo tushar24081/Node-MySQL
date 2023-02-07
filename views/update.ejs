@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updating Form</title>
+</head>
+<body>
+    
+    <form action="/update-data/<%= id %>" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT">
+        First Name: <input type="text" name="fname" id="fname" value="<%= data[0].First_Name %>"><br><br>
+        Last Name: <input type="text" name="lname" id="lname" value="<%= data[0].Last_Name %>"><br><br>
+        Contact Number: <input type="text" name="cno" id="cno" value="<%= data[0].Contact_No %>"><br><br>
+        City: <input type="text" name="city" id="city" value="<%= data[0].City %>"><br><br>
+        Email: <input type="text" name="email" id="email" value="<%= data[0].Email %>"><br><br>
+        
+        <input type="file" name="file" id="">
+        <input type="submit" value="Submit Data">
+    </form>
+</body>
+</html>
