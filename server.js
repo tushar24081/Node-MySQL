@@ -132,7 +132,7 @@ app.post("/search", (req, res) => {
 })
 
 app.get("/insert-bulk", (req, res) => {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 500; i++) {
         let randomForName = Math.floor(Math.random() * first_name.length);
         let randomForLastName = Math.floor(Math.random() * last_name.length);
         let email = first_name[randomForName] + last_name[randomForLastName] + "@gmail.com"
@@ -140,7 +140,7 @@ app.get("/insert-bulk", (req, res) => {
         let tusharContact = Math.floor(100000000 + Math.random() * 900000000);
         let tusharUniversity = Math.floor(Math.random() * 10) + 1;
     
-        var query = `INSERT INTO Student.Student_Mst (First_Name, Last_Name, Contact_No, City, Email, University, createdAt) VALUES ('${first_name[randomForName]}', '${last_name[randomForLastName]}', '${tusharContact}', '${tusharCities[randomCity]}', '${email}', ${tusharUniversity}, )`;
+        var query = `INSERT INTO Student.Student_Express (First_Name, Last_Name, Contact_No, City, Email, University, createdAt) VALUES ('${first_name[randomForName]}', '${last_name[randomForLastName]}', '${tusharContact}', '${tusharCities[randomCity]}', '${email}', ${tusharUniversity}, NOW() + INTERVAL FLOOR(RAND() * 365) DAY + INTERVAL FLOOR(RAND() * 24) HOUR + INTERVAL FLOOR(RAND() * 60) MINUTE + INTERVAL FLOOR(RAND() * 60) SECOND)`;
     
         connection.query(query, (err, res) => {
           if(err) return console.log(err.message);
